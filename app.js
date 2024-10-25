@@ -26,7 +26,9 @@ function gerachave() {
     return chave;
 }
 
-
+app.get('/', function (req, res) {
+    res.send('Gerador de chaves em /euro!');
+});
 
 app.get('/euro', function (req, res) {
     //res.setHeader('Content-Type', 'application/json');

@@ -1,13 +1,12 @@
 {
-  "name": "siiirr",
+  "name": "eurowinner",
   "version": "1.0.0",
-  "description": "",
-  "main": "euro.js",
+  "description": "gerador de chaves euromilhoes",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Rodrigo Correia",
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.1"
