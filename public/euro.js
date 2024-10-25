@@ -1,4 +1,5 @@
 
+
 document.addEventListener('DOMContentLoaded', function (e) {
     button = document.getElementById("genBtn");
     button.addEventListener('click', gerachave);
@@ -15,14 +16,45 @@ function gerador(n, min, max) {
     return [...extracao].sort((a, b) =>  a - b);
 }
 
-
-function gerachave(e) { 
+function gerachaveJSON() {
     let an = gerador(5, 1, 50);
     let ae = gerador(2, 1, 12);
 
-    console.log(gerador(5, 1, 50));
-    console.log("vou gerar a chave", e);
+    chaveJS = {
+        numeros: an,
+        estrelas: ae,
+        geradapor : 'pedromoreira'
+    }
+    return JSON.stringify(chaveJS);
+
+}
+
+function consomeChaveJSON(chavejson) {
+    let chaveJS = JSON.parse(chavejson);
+    return chaveJS;
+}
+
+function gerachave(e) {
+
+    fetch('http://localhost:3000/euro')
+        .then((res => res.json()))
+        .then((data) => {
+            updatechave(data);
+        });
+        
+}
+
+function updatechave(chave) {
+    console.log(chave)
+
+    //let an = gerador(5, 1, 50);
+    //let ae = gerador(2, 1, 12);
+
+    an = chave.numeros;
+    ae = chave.estrelas;
+
     
+    //debugger;
     listanumeros = document.getElementById("olMain");
     listanumeros.innerHTML = "";
     an.forEach((numero) => {
